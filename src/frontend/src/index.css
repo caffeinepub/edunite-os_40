@@ -1,0 +1,283 @@
+/* ============================================================
+   EdUnite Design System — Single Source of Truth
+   Color tokens: OKLCH(L C H)
+   All semantic tokens are defined here and referenced by
+   tailwind.config.js via var(--token-name).
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   TOKEN NAMING CONVENTIONS
+   --color-{semantic}         → background/foreground/border colors
+   --color-{role}             → brand/interactive colors
+   --radius-{size}            → border radius scale
+   --shadow-{size}            → box shadow scale
+   --font-{role}              → font family tokens
+   ============================================================ */
+
+@layer base {
+  :root {
+    /* --- Brand / Primary (Deep Purple) --- */
+    --color-primary: oklch(0.45 0.22 290); /* #6D28D9 deep purple */
+    --color-primary-hover: oklch(0.4 0.22 290); /* darker on hover */
+    --color-primary-active: oklch(0.35 0.22 290); /* darker on press */
+    --color-primary-subtle: oklch(0.95 0.04 290); /* very light tint */
+    --color-primary-foreground: oklch(1.0 0.0 0); /* white text on primary */
+
+    /* --- Secondary / Lavender --- */
+    --color-secondary: oklch(0.88 0.06 290); /* soft lavender */
+    --color-secondary-hover: oklch(0.83 0.08 290);
+    --color-secondary-foreground: oklch(0.3 0.15 290);
+
+    /* --- Neutral Surface Scale --- */
+    --color-background: oklch(0.99 0.0 0); /* page background */
+    --color-surface: oklch(0.97 0.0 0); /* card/panel surface */
+    --color-surface-raised: oklch(1.0 0.0 0); /* elevated card */
+    --color-surface-overlay: oklch(0.94 0.01 290); /* subtle purple-tinted overlay */
+
+    /* --- Foreground / Text --- */
+    --color-foreground: oklch(0.15 0.02 290); /* primary text */
+    --color-foreground-muted: oklch(0.5 0.03 290); /* secondary/muted text */
+    --color-foreground-subtle: oklch(0.7 0.02 290); /* placeholder/disabled text */
+
+    /* --- Border --- */
+    --color-border: oklch(0.88 0.02 290); /* default border */
+    --color-border-strong: oklch(0.75 0.04 290); /* stronger border */
+    --color-border-focus: oklch(0.45 0.22 290); /* focus ring = primary */
+
+    /* --- Semantic States --- */
+    --color-success: oklch(0.55 0.18 145); /* green */
+    --color-success-subtle: oklch(0.94 0.05 145);
+    --color-success-foreground: oklch(1.0 0.0 0);
+
+    --color-warning: oklch(0.72 0.18 75); /* amber */
+    --color-warning-subtle: oklch(0.96 0.05 75);
+    --color-warning-foreground: oklch(0.2 0.05 75);
+
+    --color-destructive: oklch(0.55 0.22 25); /* red */
+    --color-destructive-subtle: oklch(0.95 0.05 25);
+    --color-destructive-foreground: oklch(1.0 0.0 0);
+
+    --color-info: oklch(0.58 0.18 240); /* blue */
+    --color-info-subtle: oklch(0.94 0.05 240);
+    --color-info-foreground: oklch(1.0 0.0 0);
+
+    /* --- Muted (shadcn compat) --- */
+    --color-muted: oklch(0.94 0.01 290);
+    --color-muted-foreground: oklch(0.5 0.03 290);
+
+    /* --- Accent (shadcn compat) --- */
+    --color-accent: oklch(0.92 0.04 290);
+    --color-accent-foreground: oklch(0.3 0.15 290);
+
+    /* --- Input / Ring (shadcn compat) --- */
+    --color-input: oklch(0.88 0.02 290);
+    --color-ring: oklch(0.45 0.22 290);
+
+    /* --- Card (shadcn compat) --- */
+    --color-card: oklch(1.0 0.0 0);
+    --color-card-foreground: oklch(0.15 0.02 290);
+
+    /* --- Popover (shadcn compat) --- */
+    --color-popover: oklch(1.0 0.0 0);
+    --color-popover-foreground: oklch(0.15 0.02 290);
+
+    /* --- Sidebar --- */
+    --color-sidebar: oklch(0.97 0.01 290);
+    --color-sidebar-foreground: oklch(0.15 0.02 290);
+    --color-sidebar-primary: oklch(0.45 0.22 290);
+    --color-sidebar-primary-foreground: oklch(1.0 0.0 0);
+    --color-sidebar-accent: oklch(0.92 0.04 290);
+    --color-sidebar-accent-foreground: oklch(0.3 0.15 290);
+    --color-sidebar-border: oklch(0.88 0.02 290);
+    --color-sidebar-ring: oklch(0.45 0.22 290);
+
+    /* ============================================================
+       RADIUS SCALE
+       ============================================================ */
+    --radius-none: 0px;
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+
+    /* shadcn compat */
+    --radius: 8px;
+
+    /* ============================================================
+       SHADOW SCALE
+       ============================================================ */
+    --shadow-xs: 0 1px 2px 0 oklch(0.15 0.02 290 / 0.06);
+    --shadow-sm: 0 1px 3px 0 oklch(0.15 0.02 290 / 0.1), 0 1px 2px -1px
+      oklch(0.15 0.02 290 / 0.06);
+    --shadow-md: 0 4px 6px -1px oklch(0.15 0.02 290 / 0.1), 0 2px 4px -2px
+      oklch(0.15 0.02 290 / 0.06);
+    --shadow-lg: 0 10px 15px -3px oklch(0.15 0.02 290 / 0.1), 0 4px 6px -4px
+      oklch(0.15 0.02 290 / 0.06);
+    --shadow-xl: 0 20px 25px -5px oklch(0.15 0.02 290 / 0.1), 0 8px 10px -6px
+      oklch(0.15 0.02 290 / 0.06);
+    --shadow-focus: 0 0 0 3px oklch(0.45 0.22 290 / 0.25);
+
+    /* ============================================================
+       SPACING SCALE (4px base)
+       ============================================================ */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+
+    /* ============================================================
+       TYPOGRAPHY
+       ============================================================ */
+    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+    --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  }
+
+  /* ============================================================
+     DARK MODE OVERRIDES
+     ============================================================ */
+  .dark {
+    --color-primary: oklch(0.65 0.2 290);
+    --color-primary-hover: oklch(0.7 0.2 290);
+    --color-primary-active: oklch(0.75 0.18 290);
+    --color-primary-subtle: oklch(0.25 0.08 290);
+    --color-primary-foreground: oklch(0.1 0.02 290);
+
+    --color-secondary: oklch(0.3 0.08 290);
+    --color-secondary-hover: oklch(0.35 0.08 290);
+    --color-secondary-foreground: oklch(0.85 0.06 290);
+
+    --color-background: oklch(0.12 0.02 290);
+    --color-surface: oklch(0.16 0.02 290);
+    --color-surface-raised: oklch(0.2 0.02 290);
+    --color-surface-overlay: oklch(0.22 0.04 290);
+
+    --color-foreground: oklch(0.95 0.01 290);
+    --color-foreground-muted: oklch(0.65 0.03 290);
+    --color-foreground-subtle: oklch(0.45 0.02 290);
+
+    --color-border: oklch(0.28 0.03 290);
+    --color-border-strong: oklch(0.4 0.04 290);
+    --color-border-focus: oklch(0.65 0.2 290);
+
+    --color-success: oklch(0.65 0.18 145);
+    --color-success-subtle: oklch(0.22 0.06 145);
+    --color-success-foreground: oklch(0.1 0.02 145);
+
+    --color-warning: oklch(0.78 0.16 75);
+    --color-warning-subtle: oklch(0.22 0.06 75);
+    --color-warning-foreground: oklch(0.1 0.02 75);
+
+    --color-destructive: oklch(0.65 0.2 25);
+    --color-destructive-subtle: oklch(0.22 0.06 25);
+    --color-destructive-foreground: oklch(0.1 0.02 25);
+
+    --color-info: oklch(0.68 0.16 240);
+    --color-info-subtle: oklch(0.22 0.06 240);
+    --color-info-foreground: oklch(0.1 0.02 240);
+
+    --color-muted: oklch(0.22 0.02 290);
+    --color-muted-foreground: oklch(0.6 0.03 290);
+
+    --color-accent: oklch(0.25 0.05 290);
+    --color-accent-foreground: oklch(0.85 0.06 290);
+
+    --color-input: oklch(0.28 0.03 290);
+    --color-ring: oklch(0.65 0.2 290);
+
+    --color-card: oklch(0.16 0.02 290);
+    --color-card-foreground: oklch(0.95 0.01 290);
+
+    --color-popover: oklch(0.18 0.02 290);
+    --color-popover-foreground: oklch(0.95 0.01 290);
+
+    --color-sidebar: oklch(0.14 0.02 290);
+    --color-sidebar-foreground: oklch(0.9 0.02 290);
+    --color-sidebar-primary: oklch(0.65 0.2 290);
+    --color-sidebar-primary-foreground: oklch(0.1 0.02 290);
+    --color-sidebar-accent: oklch(0.22 0.04 290);
+    --color-sidebar-accent-foreground: oklch(0.85 0.06 290);
+    --color-sidebar-border: oklch(0.25 0.03 290);
+    --color-sidebar-ring: oklch(0.65 0.2 290);
+  }
+
+  /* ============================================================
+     BASE ELEMENT STYLES
+     ============================================================ */
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+    background-color: oklch(0.99 0.0 0);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  /* ============================================================
+     FOCUS RING — consistent across all interactive elements
+     ============================================================ */
+  :focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* ============================================================
+     SCROLLBAR STYLING
+     ============================================================ */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-strong);
+  }
+
+  /* ============================================================
+     SIDEBAR TRANSITION
+     ============================================================ */
+  .sidebar-transition {
+    transition: width 0.2s ease;
+  }
+}
